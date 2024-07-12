@@ -10,7 +10,7 @@ app.get('/', async (req, res) => {
 });
 
 app.get('/otro/:id', async (req, res) => {
-  res.json("Get users from api users - otro con id" + id);
+  res.json("Get users from api users - otro con id" + req.params.id);
 });
 
 app.use((req, res, next) => {

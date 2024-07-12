@@ -5,16 +5,17 @@ const router = express.Router()
 
 router.use('*', (req, res) => {
     console.log("Original url: " + req.originalUrl);
-    const [a , service, ...pathParts] = req.originalUrl.split('/');
+    const [ , , , service, ...pathParts] = req.originalUrl.split('/');
     const path = pathParts.join('/');
 
-    console.log("Service to request: " + a);
+    console.log("Path to request: " + pathParts);
+    console.log("Service to request: " + service);
     
     const serviceConfig = services[service];
     if (!serviceConfig) {
         console.log("Service: "+ serviceConfig);
         return res.status(404).send({ message: 'Service not found' });
-    }
+    } 
 
     axios({
         method: req.method,

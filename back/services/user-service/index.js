@@ -9,6 +9,11 @@ app.get('/', async (req, res) => {
   res.json("Get users from api users");
 });
 
+app.post('/', async (req, res) => {
+  var request = req.body
+  res.json(request);
+});
+
 app.get('/otro/:id', async (req, res) => {
   res.json("Get users from api users - otro con id" + req.params.id);
 });

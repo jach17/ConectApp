@@ -10,8 +10,8 @@ app.get('/', async (req, res) => {
 });
 
 app.post('/', async (req, res) => {
-  var request = req.body
-  res.json(request);
+  console.log("Llegó" + JSON.stringify(req.body));
+  res.json("User created");
 });
 
 app.get('/otro/:id', async (req, res) => {
@@ -21,6 +21,8 @@ app.get('/otro/:id', async (req, res) => {
 app.use((req, res, next) => {
   res.status(404).send({ message: 'Not Found' });
 });
+
+
 app.listen(PORT, () => {
   console.log(`User Service running on port ${PORT}`);
 });
